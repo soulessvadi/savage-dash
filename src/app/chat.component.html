@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="chat-wrapper">
+		<div class="chat-window">
+			<div class="chat-messages" #chatScroller>
+				<div *ngFor="let m of messages" class="message">
+					<div class="col-xs-2 img">
+						<img src="{{m.user.image}}" alt="{{m.user.name}}">
+						<p>{{m.user.name | uppercase}}</p>
+					</div>
+					<div class="col-xs-10 text">
+						<button (click)="viewDetails(m.id)" style="color: #fff;border: none;background: rgba(0, 0, 0, 0.31);float: right;">View</button>
+						<p class="mess">{{m.text }}</p>
+						<p class="time">
+							<a [routerLink]="['/chat', m.id]">Edit message</a> 
+							<i>{{m.created}}</i>
+						</p>
+					</div>
+					<br clear="both">
+				</div>
+			</div>
+			<div class="chat-footer">
+				<textarea #ChatMessage cols="30" rows="3" (keyup.enter)="onMessageSend()"></textarea>
+				<button (click)="onMessageSend()">{{ btntext }}</button>
+			</div>
+		</div>
+	</div>
+</div>

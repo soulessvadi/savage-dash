@@ -1,0 +1,42 @@
+import { Component, ViewChild, Renderer2 } from '@angular/core';
+import { Menu } from './menu';
+import { MenuService } from './menu.service';
+
+@Component({
+  selector: 'menu-bar',
+  templateUrl: './menu.component.html',
+})
+
+export class MenuComponent {
+
+	constructor(private menuService: MenuService) { 
+		// this.tabs = this.menuService.getMenu(); /* without promise */
+		this.menuService.getMenu().then(menuList => this.tabs = menuList); /* with promise */
+	}
+
+	@ViewChild('tabModal') TabModal;
+
+  	tabs: Menu[];
+	renderer: Renderer2;
+	selectedTab: Menu;
+	selectedSubtab: Menu;
+	selectedSubtabEdit: Menu;
+	selectedSubtabEditDefault: Menu;
+
+	onTabSelect(tab: Menu): void {
+  		this.selectedTab = tab;
+	}
+
+	onSubTabSelect(tab: Menu): void {
+  		this.selectedSubtab = tab;
+	}
+
+	onSubtabEdit(tab: Menu): void {
+		this.selectedSubtabEdit = tab;
+	}
+
+	onSubtabEditClose() {
+		this.selectedSubtabEdit = this.selectedSubtabEditDefault;
+	}	
+
+}

@@ -1,0 +1,56 @@
+@import '/assets/bootstrap.min.css';
+@import '/assets/fonts.css';
+html{font-family: "Roboto Condensed";}
+body{margin: 0; padding: 0; overflow-x: hidden;min-height: 100vh;background-color: #190e0e;}
+header{    background-color: #282828;box-shadow: 0px 5px 15px 1px #890000;border-bottom: 1px solid rgb(186, 82, 0);}
+a {color: #a1d4ff;text-decoration: none; transition: .2s;}
+a:hover{color: #32a1ff; text-decoration: none;}
+
+.logo{width:50px; height: 50px; background: transparent url(/assets/logo.png/) center no-repeat;background-size: cover;margin: 10px;}
+.logo.loading{animation: rotate 10s infinite linear;}
+.menu ul{list-style: none; padding: 24px 0; margin: 0;}
+.menu ul li{display: inline-block; margin-right: 20px; }
+.menu a{color: #fff; font-size: 16px; text-decoration: none; letter-spacing: 1px;}
+.content{height: 100%;}
+.page-data{min-height: calc(100vh - 71px); height: 1px;  color: #ececec;}
+.content-bar{height: 100%;overflow-y: auto; overflow-x: hidden;}
+.menu-bar{ height: 100%;background-color: rgba(51, 44, 44, 0.8);padding: 0;position: relative;z-index:2;}
+.menu-bar ul.main-list{ list-style: none; color: #ececec; padding: 0; margin: 0;}
+.menu-bar ul.main-list li a{ color: inherit; text-decoration: none;letter-spacing: 2px; padding: 20px; display: block; transition: all .15s;border-right: 1px solid transparent; cursor: pointer;}
+.menu-bar ul.main-list li a:hover,.menu-bar ul.main-list li a.selected{background-color: #000;border-color:rgb(186, 82, 0);box-shadow:  -2px 0px 7px -1px #9c4603;}
+.menu-bar ul.sub-list{z-index:1;display: block;opacity: 1;left: 50%;min-width: 50%;position: absolute;top: 0px;left: 101%;list-style: none;color: #ececec;background: #282828;padding: 0;box-shadow: 0px 0px 3px 0px #000;margin: 0;}
+.menu-bar ul.sub-list li{white-space: nowrap; position: relative;}
+.menu-bar ul.sub-list li a{ color: inherit; text-decoration: none; letter-spacing: 2px; padding: 20px; display: block; transition: all .15s; cursor: pointer;}
+.menu-bar ul.sub-list li i{display: block; cursor: pointer; position: absolute; top:5px; right: 5px;    color: #f4f0a0;font-size: 12px;letter-spacing: 1px; user-select: none;}
+.menu-bar ul.sub-list li a:hover,.menu-bar ul.sub-list li a.selected{background-color: #000;}
+.modal-content{background: rgba(45, 37, 37, 0.89);color: #fff;letter-spacing: 1px;box-shadow: 0 -1px 12px rgba(186, 82, 0, 0.71);}
+.modal-content .close{color: #fff; opacity: 1; outline: none;}
+.modal-content input{background: transparent;padding: 5px 15px; border: none; border-bottom: 1px solid #b0b0b0;letter-spacing: 1px;font-weight: 500;margin: 0 10px;outline: none;}
+.modal-content input:focus,.modal-content input:active{border-color: rgb(186, 82, 0);}
+.modal-dialog{margin-top: 10%;}
+
+.chat-wrapper{padding: 5% 10%;}
+.chat-window{border: 5px solid rgba(255, 255, 255, 0.16);border-radius: 10px;padding: 20px;}
+.message{margin: 10px;padding: 30px 15px;background-color: rgba(98, 98, 98, 0.85);}
+.message .img{border-right: 1px solid #282828;text-align: center;}
+.message .img img{max-width: 150px; max-height: 90px;}
+.message .img p {margin: 10px 0;letter-spacing: 2px;font-size: 20px;}
+.message .text p.mess {margin: 10px 0;letter-spacing: 2px;font-size: 16px; min-height: 80px;}
+.message .text p{}
+.message .text p.time {letter-spacing: 1px;font-size: 14px;text-align: right;}
+.chat-footer{padding: 10px;}
+.chat-window .line{margin:10px 0;}
+.chat-window .line input{background: rgba(87, 85, 85, 0.63);color: #e6e6e6;padding: 5px 15px;font-size: 16px;border: none;outline: none;letter-spacing: 1px;resize: none;overflow: hidden;}
+.chat-window .line img{height: 30px;}
+.chat-window .line label{width: 15%;}
+.chat-footer textarea{background: rgba(87, 85, 85, 0.63);width: 80%;color: #e6e6e6;padding: 10px 15px;font-size: 16px;border: none;outline: none;letter-spacing: 1px;resize: none;overflow: hidden;}
+.chat-footer button{vertical-align: top;display: block;float: right;width: 19%;height: 86px;border: 3px solid rgba(255, 72, 0, 0.8);background: transparent;font-size: 20px;letter-spacing: 10px;outline: none;    color: #d4ffa6;}
+.chat-footer button:hover{box-shadow: 0px 1px 11px 1px #890000;}
+.chat-messages{overflow-y: auto; overflow-x: hidden; max-height: 50vh;}
+/*keyframes*/
+@keyframes colorchange {0% {background: #00FFA9;} 25% {background: #B34EE9;} 50% {background: coral;} 75% {background: #D0FF00;} 100% {background: #00FFA9;}}
+@keyframes exhausted {0% {background: #c12525;} 50% {background: #f62c2c;} 100% {background: #c12525;}}
+@keyframes rotate {from { -webkit-transform: rotate( 0deg ); } to { -webkit-transform: rotate( 360deg );}}
+@-webkit-keyframes rotate {from { -webkit-transform: rotate( 0deg ); } to { -webkit-transform: rotate( 360deg );}}
+/*keyframes*/
+

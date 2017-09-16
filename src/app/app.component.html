@@ -1,0 +1,39 @@
+<header>
+	<div class="container-fluid">
+		<div class="row">
+			<a href="/"><div #logo class="logo pull-left"></div></a>
+			<div class="menu pull-right">
+				<ul>
+					<li *ngFor="let button of buttons"><a href="{{button.trigger}}">{{button.name}}</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+
+<section class="content">
+	<div class="nk-page-background op-5"
+		data-bg-mp4="assets/video/bg-2.mp4"
+		data-bg-webm="assets/video/bg-2.webm"
+		data-bg-ogv="assets/video/bg-2.ogv"
+		data-bg-poster="assets/video/bg-2.jpg" style="background-image: url(/assets/video/bg-2.jpg); opacity: .5!important;position: fixed;top: 0;right: 0;z-index: -1;left: 0;bottom: 0;background-position: 50% 50%;background-size: cover;">
+		<video #VideoWorker loop="true" id="VideoWorker" style="display: block;opacity: 1;width: 100%;height: auto;margin:0;transform: translate3d(0px, 0px, 0px);">
+			<source src="assets/video/bg-2.mp4" type="video/mp4">
+			<source src="assets/video/bg-2.webm" type="video/webm">
+			<source src="assets/video/bg-2.ogv" type="video/ogg">
+		</video>
+	</div>
+	<div class="page-data">
+		<menu-bar></menu-bar>
+		<div class="content-bar col-xs-10">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+</section>
+
+<script>
+	window.onload = function() {
+		vid = document.getElementById("VideoWorker"); 
+		vid.play();
+	}
+</script>

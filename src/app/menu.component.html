@@ -1,0 +1,24 @@
+<div class="menu-bar col-xs-2">
+	<ul class="main-list">
+		<li *ngFor="let tab of tabs"><a [class.selected] = "tab === selectedTab" (click)="onTabSelect(tab)" routerLink="{{tab.alias}}"> {{ tab.name }} </a></li>
+	</ul>
+	<ul *ngIf="selectedTab" class="sub-list">
+		<li *ngFor="let subtab of selectedTab.childs"><a [class.selected] = "subtab === selectedSubtab" (click)="onSubTabSelect(subtab)"> {{ subtab.name }} </a> <i (click)="onSubtabEdit(subtab)">edit</i></li>
+	</ul>
+</div>
+
+<div [class.in]="selectedSubtabEdit" [style.display]="selectedSubtabEdit ? 'block' : 'none'" id="tabModal" class="modal fade" role="dialog">
+  <div class="modal-dialog" *ngIf="selectedSubtabEdit">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="onSubtabEditClose()">&times;</button>
+        <h4 class="modal-title">"{{selectedSubtabEdit.name}}" menu settings</h4>
+      </div>
+      <div class="modal-body">
+		<label>
+			<p>Name <input type="text" [(ngModel)]="selectedSubtabEdit.name" placeholder="name"></p>
+		</label>
+      </div>
+    </div>
+  </div>
+</div>
