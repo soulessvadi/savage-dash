@@ -5,12 +5,13 @@ import { Message } from './message';
 import { Messages } from './messages.data';
 
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
 
 @Injectable() 
 
 export class MessagesService {
 
-	constructor(private http: Http) {}
+	constructor(private _http: Http) {}
 
 	/* with promise */
 	getMessages(): Promise<Message[]> {
@@ -18,23 +19,25 @@ export class MessagesService {
 	}
 
 	getMessagesAPI(): Promise<Message[]> {
-		let messages;
-		let promise = new Promise((resolve, reject) => {
-			this.http.get('https://delight.travel/tours/apps/getMessages')
-			  .toPromise()
-			  .then(res => {
-			  	messages = res.json();
-			  	resolve();
-			  });
-		});
-		return promise;	             
-	}
-	 
-	private handleError(error: any): Promise<any> {
-	  console.error('An error occurred', error);
-	  return Promise.reject(error.message || error);
+		return this._http.get('https://delight.travel/tours/apps/getMessages')
+		.toPromise()
+		.then(res => res.json())
+		.catch(err => {console.log(err)});
 	}
 
+	// getMessagesAPI(): Promise<Message[]> {
+	// 	let messages,
+	// 		promise = new Promise((resolve, reject) => {
+	// 		this._http.get('https://delight.travel/tours/apps/getMessages')
+	// 		  .toPromise()
+	// 		  .then(res => {
+	// 		  	messages = res.json();
+	// 		  	resolve();
+	// 		  });
+	// 	});
+	// 	return promise;	             
+	// }	
+	 
 	addMessage(message: any): Promise<Message[]> {
 		var date = new Date().toLocaleString().replace(',', '');
         Messages.unshift({
