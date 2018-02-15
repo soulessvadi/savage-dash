@@ -1,8 +1,8 @@
 @import '/assets/bootstrap.min.css';
 @import '/assets/fonts.css';
 html{font-family: "Roboto Condensed";}
-body{margin: 0; padding: 0; overflow-x: hidden;min-height: 100vh;background-color: #190e0e;}
-header{    background-color: #282828;box-shadow: 0px 5px 15px 1px #890000;border-bottom: 1px solid rgb(186, 82, 0);}
+body{margin: 0; padding: 0; overflow-x: hidden;min-height: 100vh;background-color: #fff;color: #202020;}
+header{    background-color: #e4e4e4;box-shadow: 0px 2px 15px 1px rgb(0,30,255); }
 a {color: #a1d4ff;text-decoration: none; transition: .2s;}
 a:hover{color: #32a1ff; text-decoration: none;}
 
@@ -10,9 +10,9 @@ a:hover{color: #32a1ff; text-decoration: none;}
 .logo.loading{animation: rotate 10s infinite linear;}
 .menu ul{list-style: none; padding: 24px 0; margin: 0;}
 .menu ul li{display: inline-block; margin-right: 20px; }
-.menu a{color: #fff; font-size: 16px; text-decoration: none; letter-spacing: 1px;}
+.menu a{color: #3f3f3f; font-size: 16px; text-decoration: none; letter-spacing: 1px;}
 .content{height: 100%;}
-.page-data{min-height: calc(100vh - 71px); height: 1px;  color: #ececec;}
+.page-data{min-height: calc(100vh - 71px); height: 1px;  color: #202020;}
 .content-bar{height: 100%;overflow-y: auto; overflow-x: hidden;}
 .menu-bar{ height: 100%;background-color: rgba(51, 44, 44, 0.8);padding: 0;position: relative;z-index:2;}
 .menu-bar ul.main-list{ list-style: none; color: #ececec; padding: 0; margin: 0;}

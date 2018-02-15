@@ -1,7 +1,7 @@
 import { Component, ViewChild, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
-import { Message } from './message';
-import { MessagesService } from './messages.service';
+import { Message } from './models/message';
+import { MessagesService } from './services/messages.service';
 
 @Component({
   selector: 'chat',
@@ -12,7 +12,7 @@ import { MessagesService } from './messages.service';
 export class ChatComponent {
 
 	constructor(private messagesService: MessagesService, private router: Router) { 
-		  this.messagesService.getMessagesAPI().then(list => this.messages = list);
+		  this.messagesService.getMessages().then(list => this.messages = list);
 
 	}
 
@@ -27,7 +27,17 @@ export class ChatComponent {
   		if(message.length > 0) {
   			this.chatScroller.nativeElement.scrollTop = 0;
   			this.textarea.nativeElement.value = '';
-  			this.messagesService.addMessage(message).then(list => this.messages = list);
+        this.messages.unshift({
+          id: this.messages.length + 1,
+          user: { 
+            name: 'Anonymous', 
+            age: '11', 
+            image: '/assets/anonymous-256.png' 
+          }, 
+          text: message, 
+          created: new Date().toLocaleString().replace(',', '')
+        });
+  			// this.messagesService.addMessage(message).then(list => this.messages = list);
   		}
   	}
 

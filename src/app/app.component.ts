@@ -1,5 +1,5 @@
 import { Component, ViewChild, Renderer2, OnInit } from '@angular/core';
-import { Menu } from './menu';
+import { Menu } from './models/menu';
 
 export class Button { 
 	trigger: string; 
@@ -8,8 +8,6 @@ export class Button {
 
 const Buttons: Button[] = [
 	{trigger: 'Back', name: 'Back'},
-	{trigger: 'Edit', name: 'Edit'},
-	{trigger: 'Create', name: 'Create'},
 	{trigger: 'Exit', name: 'Exit'},
 ];
 
@@ -32,11 +30,11 @@ export class AppComponent implements OnInit {
   	buttons = Buttons;
 
   	ngAfterViewInit(): void {
-  		this.VideoWorker.nativeElement.play();
+      this.loading('hide');
   	}
 
   	ngOnInit(): void {
-  		// this.loading('show');
+  		this.loading('show');
   	}
 
   	loading(act: string): void {

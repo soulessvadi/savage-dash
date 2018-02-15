@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location }                 from '@angular/common';
-import { Message } from './message';
-import { MessagesService } from './messages.service';
+import { Message } from './models/message';
+import { MessagesService } from './services/messages.service';
 import 'rxjs/add/operator/switchMap';
 
 @Component({

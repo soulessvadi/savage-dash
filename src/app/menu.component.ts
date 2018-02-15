@@ -1,6 +1,6 @@
 import { Component, ViewChild, Renderer2 } from '@angular/core';
-import { Menu } from './menu';
-import { MenuService } from './menu.service';
+import { Menu } from './models/menu';
+import { MenuService } from './services/menu.service';
 
 @Component({
   selector: 'menu-bar',
@@ -10,8 +10,7 @@ import { MenuService } from './menu.service';
 export class MenuComponent {
 
 	constructor(private menuService: MenuService) { 
-		// this.tabs = this.menuService.getMenu(); /* without promise */
-		this.menuService.getMenu().then(menuList => this.tabs = menuList); /* with promise */
+		this.menuService.getMenu().then(menuList => this.tabs = menuList); 
 	}
 
 	@ViewChild('tabModal') TabModal;
