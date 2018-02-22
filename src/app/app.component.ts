@@ -7,8 +7,8 @@ export class Button {
 }
 
 const Buttons: Button[] = [
-	{trigger: 'Back', name: 'Back'},
-	{trigger: 'Exit', name: 'Exit'},
+	{trigger: 'back', name: 'Back'},
+	{trigger: 'exit', name: 'Exit'},
 ];
 
 @Component({
@@ -23,8 +23,8 @@ export class AppComponent implements OnInit {
 	
 	constructor(private renderer: Renderer2) {  }
 
-	@ViewChild('VideoWorker') VideoWorker;
-	@ViewChild('logo') Logo;
+  	@ViewChild('VideoWorker') VideoWorker;
+  	@ViewChild('logo') Logo;
 
   	title = 'Page content goes here';
   	buttons = Buttons;
